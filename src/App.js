@@ -234,7 +234,7 @@ function LandingPage() {
 function InvitePage() {
     // Updated Google Calendar link for a chill evening from 5–7pm,
     // automatically adding cipf7009@gmail.com to the event.
-    const googleCalendarLink ="https://calendar.google.com/calendar/r/eventedit?text=valentine's+date+&dates=20250213T170000/20250213T190000&details=Let+me+know+if+this+works+%3A%29%2C+otherwise%2C+I%27ll+meet+you+at+yours&add=cipf7009@gmail.com&add=spaste3@illinois.edu"      
+    const googleCalendarLink = "https://calendar.google.com/calendar/r/eventedit?text=valentine%27s+date&dates=20250213T170000/20250213T190000&details=let+me+know+if+this+works+or+if+another+time+is+better.+otherwise%2C+ill+meet+you+at+yours+%3A%29&add=cipf7009%40gmail.com&add=spaste3%40illinois.edu";
     const handleAccept = () => {
       window.open(googleCalendarLink, '_blank');
     };
