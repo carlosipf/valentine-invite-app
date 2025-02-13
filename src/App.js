@@ -167,9 +167,10 @@ function LandingPage() {
   const [noButtonClickCount, setNoButtonClickCount] = useState(0);
   const noMessages = [
     "haha you can't catch me 🤣🫵",
-    "nope, not this time ❌",
+    "not taking that as an answer ❌",
     "no?! 😵",
-    "seriously? 💔"
+    "seriously? 💔",
+    "🤨",
   ];
 
   const handleNoClick = () => {
