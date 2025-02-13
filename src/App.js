@@ -264,21 +264,40 @@ function App() {
     const audioRef = useRef(null);
 
   useEffect(() => {
+    const playAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play().catch((error) => {
+          console.error("Playback failed:", error);
+        });
+      }
+      // Remove the event listener after playback is triggered
+      document.removeEventListener('click', playAudio);
+    };
+
+    // Attempt to play immediately
     if (audioRef.current) {
-      audioRef.current.muted = false;
-      audioRef.current.play().catch((error) => console.log(error));
+      audioRef.current.play().catch((error) => {
+        // If autoplay fails, wait for a user interaction.
+        console.warn("Autoplay blocked, waiting for user interaction.", error);
+        document.addEventListener('click', playAudio);
+      });
     }
+
+    // Cleanup the event listener if the component unmounts
+    return () => {
+      document.removeEventListener('click', playAudio);
+    };
   }, []);
-  return (
-    <>
-      {/* Background song (ensure the audio file is in your public folder) */}
-      <audio
-  ref={audioRef}
-  src="/Lou Val - Eternal Sunshine (Official Visualizer).mp3"
-  autoPlay
-  loop
-  playsInline
-/>
+    return (
+        <>
+        {/* Background song (ensure the audio file is in your public folder) */}
+        <audio
+        ref={audioRef}
+        src="/Lou Val - Eternal Sunshine (Official Visualizer).mp3"
+        autoPlay
+        loop
+        playsInline
+      />
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
