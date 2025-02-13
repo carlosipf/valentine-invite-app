@@ -272,7 +272,13 @@ function App() {
   return (
     <>
       {/* Background song (ensure the audio file is in your public folder) */}
-      <audio ref={audioRef} src="/Lou Val - Eternal Sunshine (Official Visualizer).mp3" autoPlay loop muted />
+      <audio
+  ref={audioRef}
+  src="/Lou Val - Eternal Sunshine (Official Visualizer).mp3"
+  autoPlay
+  loop
+  playsInline
+/>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
